@@ -14,7 +14,8 @@ const server =
 const io =
     new Server(server,{
       cors:{
-         origin:"*"
+         origin:["https://rtc-editor.vercel.app"],
+          methods: ["GET", "POST"]
       }
     });
 
