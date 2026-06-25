@@ -1,0 +1,285 @@
+/* ==========================================================================
+   1. JOIN ROOM SCREEN
+   ========================================================================== */
+.join-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100vw;
+  background-color: var(--bg-main);
+}
+
+.join-form {
+  background-color: var(--bg-sidebar);
+  padding: 40px;
+  border-radius: 12px;
+  border: 1px solid var(--border-color);
+  width: 100%;
+  max-width: 400px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+}
+
+.join-form h1 {
+  font-size: 24px;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+.join-form input {
+  background-color: var(--bg-input);
+  color: var(--text-primary);
+  padding: 12px 16px;
+  border-radius: 8px;
+  border: 1px solid transparent;
+  transition: border-color 0.2s;
+}
+
+.join-form input:focus {
+  border-color: var(--accent-color);
+}
+
+.join-form button {
+  background-color: var(--accent-color);
+  color: #000000;
+  font-weight: 600;
+  padding: 12px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.join-form button:hover {
+  background-color: var(--accent-hover);
+}
+
+/* ==========================================================================
+   2. MAIN WORKSPACE LAYOUT (LEETCODE STYLE)
+   ========================================================================== */
+.editor-container {
+  display: flex;
+  height: 100vh;
+  width: 100vw;
+  background-color: var(--bg-main);
+}
+
+/* Sidebar Column */
+.sidebar {
+  width: 300px;
+  min-width: 300px;
+  background-color: var(--bg-sidebar);
+  border-right: 1px solid var(--border-color);
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  gap: 24px;
+}
+
+/* Editor Main Column */
+.editor {
+  flex-grow: 1;
+  background-color: #1e1e1e; /* Matches Monaco default background */
+  padding-top: 8px; /* Provides top clearance for a cleaner text flow */
+  height: 100%;
+}
+
+.copy-success {
+  margin-left: 12px;
+  font-size: 12px;
+  color: var(--accent-color);
+  font-style: italic;
+}
+
+/* ==========================================================================
+   3. SIDEBAR DETAILS & INTERACTION COMPONENT ELEMENTS
+   ========================================================================== */
+
+/* Room Management Block */
+.room-info h2 {
+  font-size: 16px;
+  color: var(--text-primary);
+  margin-bottom: 8px;
+  word-break: break-all;
+}
+
+.room-info button {
+  background-color: var(--bg-input);
+  color: var(--text-primary);
+  padding: 6px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+  border: 1px solid var(--border-color);
+  font-size: 12px;
+  transition: background-color 0.2s;
+}
+
+.room-info button:hover {
+  background-color: #444444;
+}
+
+/* Connected Users Track List */
+.sidebar h3 {
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: var(--text-secondary);
+  margin-bottom: -12px; /* Pulls content closer to the header */
+}
+
+.sidebar ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  max-height: 250px;
+  overflow-y: auto;
+}
+
+.sidebar li {
+  background-color: rgba(255, 255, 255, 0.04);
+  padding: 10px 14px;
+  border-radius: 6px;
+  font-size: 14px;
+  color: var(--text-primary);
+  border-left: 3px solid var(--accent-color);
+}
+
+/* Typing Context Alert */
+.typing-indicator {
+  font-size: 13px;
+  color: var(--accent-color);
+  font-style: italic;
+  min-height: 20px; /* Locks vertical height spacing even if empty */
+}
+
+/* Language Dynamic Selector Dropdown */
+.codeLanguage {
+  background-color: var(--bg-input);
+  color: var(--text-primary);
+  padding: 10px 12px;
+  border-radius: 6px;
+  border: 1px solid var(--border-color);
+  cursor: pointer;
+  width: 100%;
+  appearance: none; /* Removes standard native dropdown icons */
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://w3.org' viewBox='0 0 24 24' fill='none' stroke='%23909090' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+  background-repeat: no-repeat;
+  background-position: right 12px center;
+  background-size: 16px;
+}
+
+/* Navigation Exit / Leave Action */
+.leave {
+  background-color: transparent;
+  color: var(--danger-color);
+  border: 1px solid var(--danger-color);
+  padding: 10px;
+  border-radius: 6px;
+  font-weight: 500;
+  cursor: pointer;
+  margin-top: auto; /* Pushes the leave button cleanly to the bottom of layout */
+  transition: all 0.2s ease-in-out;
+}
+
+.leave:hover {
+  background-color: var(--danger-color);
+  color: #ffffff;
+}
+
+/* output panel  */
+.run-button{
+    background:#61a803;
+    color:white;
+
+    border:none;
+
+    padding:10px 18px;
+
+    border-radius:8px;
+
+    cursor:pointer;
+
+    font-size:14px;
+
+    font-weight:600;
+
+    transition:all .2s ease;
+
+    width: 10rem;
+
+    margin-top:10px;
+}
+
+.run-button:hover{
+    transform:translateY(-1px);
+
+    opacity:.95;
+}
+
+.run-button:active{
+    transform:translateY(0);
+}
+
+.run-button:disabled{
+    opacity:.5;
+
+    cursor:not-allowed;
+}
+/* Add these to App.css */
+
+.output-wrapper {
+  display: flex;
+  flex-direction: column;
+  padding: 0 15px 15px 15px;
+  height: 40%;
+  box-sizing: border-box;
+}
+
+.output-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 0;
+}
+
+.output-title {
+  font-size: 13px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: var(--text-secondary);
+}
+
+.output-console {
+  width: 100%;
+  flex: 1;
+  background: #1e1e1e;
+  color: #d4d4d4;
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  padding: 15px;
+  font-family: 'Fira Code', 'Cascadia Code', 'Consolas', monospace;
+  font-size: 13px;
+  line-height: 1.6;
+  white-space: pre-wrap;      /* preserves \n line breaks */
+  overflow-y: auto;
+  resize: none;
+  outline: none;
+  box-sizing: border-box;
+}
+
+/* green left border when output is clean */
+.output-success {
+  border-left: 3px solid #4caf50;
+}
+
+/* red left border on any error */
+.output-error {
+  border-left: 3px solid var(--danger-color);
+  color: #ff7b7b;
+}
